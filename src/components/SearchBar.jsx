@@ -16,6 +16,7 @@ const SearchBar = () => {
       if (searchQuery?.trim()) {
         const response = await axios.get(`${API_URL}/search?q=${searchQuery}`);
         setResults(Array.isArray(response?.data?.data) ? response.data : []);
+        console.log('Search results:', response.data);
       } else {
         setResults([]);
       }
