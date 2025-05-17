@@ -15,6 +15,10 @@ const MedicineSection = () => {
       .catch((err) => console.error("Error fetching medicines:", err));
   }, []);
 
+  const handleCardClick = () => {
+    navigate('/products');
+  };
+
   return (
     <Box sx={{ mt: 5, px: 3 }}>
       <Typography variant="h5" sx={{ fontWeight: "bold", mb: 3, textAlign: "center" }}>
@@ -32,10 +36,10 @@ const MedicineSection = () => {
           gap: 3,
         }}
       >
-        {medicines?.map((medicine) => (
+        {Array.isArray(medicines) && medicines.map((medicine) => (
           <Card
-            key={medicine.id}
-            onClick={() => navigate('/products')}
+            key={medicine?.id || Math.random()}
+            onClick={handleCardClick}
             sx={{
               height: "100%",
               display: "flex",
