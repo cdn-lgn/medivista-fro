@@ -11,6 +11,7 @@ const MedicineSection = () => {
   useEffect(() => {
     const fetchMedicines = async () => {
       try {
+        console.log("API URL is:", API_URL);
         console.log("Fetching medicines from API...");
         const response = await axios.get(`${API_URL}/data`);
         setMedicines(response?.data || []);
