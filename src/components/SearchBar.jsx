@@ -9,16 +9,18 @@ const SearchBar = () => {
   const [showResults, setShowResults] = useState(false);
   const navigate = useNavigate();
 
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
   useEffect(() => {
     const debounceSearch = setTimeout(() => {
       if (query) {
-        axios.get(`http://localhost:5000/search?q=${query}`)
+        axios.get(`${API_URL}/search?q=${query}`)
           .then(response => setResults(response.data))
           .catch(err => console.error(err));
       } else {
         setResults([]);
       }
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(debounceSearch);
   }, [query]);

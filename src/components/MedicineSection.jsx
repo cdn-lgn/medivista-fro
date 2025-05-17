@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom';
 const MedicineSection = () => {
   const [medicines, setMedicines] = useState([]);
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/data")
+      .get(`${API_URL}/data`)
       .then((response) => setMedicines(response.data))
       .catch((err) => console.error("Error fetching medicines:", err));
   }, []);

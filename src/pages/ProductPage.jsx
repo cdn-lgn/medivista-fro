@@ -9,9 +9,10 @@ const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/data/${id}`)
+    axios.get(`${API_URL}/data/${id}`)
       .then(response => {
         // Combine API data with dummy details
         setProduct({
