@@ -11,14 +11,16 @@ const SearchBar = () => {
 
   const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
-  const handleSearch = (searchQuery) => {
-    if (searchQuery?.trim()) {
-      axios.get(`${API_URL}/search?q=${searchQuery}`)
-        .then(response => {
-          setResults(Array.isArray(response?.data) ? response.data : []);
-        })
-        .catch(() => setResults([]));
-    } else {
+  const handleSearch = async (searchQuery) => {
+    try {
+      if (searchQuery?.trim()) {
+        const response = await axios.get(`${API_URL}/search?q=${searchQuery}`);
+        setResults(Array.isArray(response?.data) ? response.data : []);
+      } else {
+        setResults([]);
+      }
+    } catch (error) {
+      console.error('Search error:', error);
       setResults([]);
     }
   };

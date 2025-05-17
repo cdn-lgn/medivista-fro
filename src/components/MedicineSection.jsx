@@ -9,10 +9,18 @@ const MedicineSection = () => {
   const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
   useEffect(() => {
-    axios
-      .get(`${API_URL}/data`)
-      .then((response) => setMedicines(response.data))
-      .catch((err) => console.error("Error fetching medicines:", err));
+    const fetchMedicines = async () => {
+      try {
+        console.log("Fetching medicines from API...");
+        const response = await axios.get(`${API_URL}/data`);
+        setMedicines(response?.data || []);
+      } catch (error) {
+        console.error("Error fetching medicines:", error);
+        setMedicines([]);
+      }
+    };
+
+    fetchMedicines();
   }, []);
 
   const handleCardClick = () => {

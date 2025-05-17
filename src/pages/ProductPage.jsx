@@ -12,11 +12,11 @@ const ProductPage = () => {
   const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
   useEffect(() => {
-    axios.get(`${API_URL}/data/${id}`)
-      .then(response => {
-        // Combine API data with dummy details
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/data/${id}`);
         setProduct({
-          ...response.data,
+          ...response?.data,
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           usage: [
             "Take as directed by your physician",
@@ -31,9 +31,14 @@ const ProductPage = () => {
           ],
           composition: "Active ingredient: Lorem ipsum 500mg"
         });
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      } finally {
         setLoading(false);
-      })
-      .catch(err => console.error(err));
+      }
+    };
+
+    fetchProduct();
   }, [id]);
 
   if (loading) return <Typography>Loading...</Typography>;
