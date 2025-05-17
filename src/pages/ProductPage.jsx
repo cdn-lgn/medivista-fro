@@ -16,7 +16,7 @@ const ProductPage = () => {
       try {
         const response = await axios.get(`${API_URL}/data/${id}`);
         setProduct({
-          ...response?.data,
+          ...response?.data?.data,
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           usage: [
             "Take as directed by your physician",
