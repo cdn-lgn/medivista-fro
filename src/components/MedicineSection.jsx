@@ -14,7 +14,7 @@ const MedicineSection = () => {
         console.log("API URL is:", API_URL);
         console.log("Fetching medicines from API...");
         const response = await axios.get(`${API_URL}/data`);
-        setMedicines(response?.data || []);
+        setMedicines(response?.data?.data || []);
         console.log("Medicines fetched successfully:", response?.data);
       } catch (error) {
         console.error("Error fetching medicines:", error);
