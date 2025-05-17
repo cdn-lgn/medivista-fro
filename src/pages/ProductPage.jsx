@@ -48,10 +48,8 @@ const ProductPage = () => {
     <div style={{paddingTop:"64px"}}>
       <Header />
       <Container maxWidth="lg" sx={{ py: 4, minHeight: '80vh' }}>
-        {/* Top Section - Side by Side */}
         <Box sx={{ mb: 4 }}>
           <Grid container spacing={4}>
-            {/* Image */}
             <Grid item xs={12} md={6}>
               <Paper
                 elevation={2}
@@ -76,7 +74,6 @@ const ProductPage = () => {
               </Paper>
             </Grid>
 
-            {/* Initial Product Info */}
             <Grid item xs={12} md={6}>
               <Box sx={{
                 display: 'flex',
@@ -103,13 +100,11 @@ const ProductPage = () => {
           </Grid>
         </Box>
 
-        {/* Details Section Below */}
         <Divider sx={{ my: 4 }} />
 
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-              {/* Description */}
               <Box>
                 <Typography variant="h6" gutterBottom>Description</Typography>
                 <Typography color="text.secondary">
@@ -117,7 +112,6 @@ const ProductPage = () => {
                 </Typography>
               </Box>
 
-              {/* Usage & Directions */}
               <Box>
                 <Typography variant="h6" gutterBottom>Usage & Directions</Typography>
                 <Box component="ul" sx={{ color: 'text.secondary', pl: 2 }}>
@@ -127,7 +121,6 @@ const ProductPage = () => {
                 </Box>
               </Box>
 
-              {/* Side Effects */}
               <Box>
                 <Typography variant="h6" gutterBottom>Side Effects</Typography>
                 <Box component="ul" sx={{ color: 'text.secondary', pl: 2 }}>
@@ -137,7 +130,6 @@ const ProductPage = () => {
                 </Box>
               </Box>
 
-              {/* Composition */}
               <Box>
                 <Typography variant="h6" gutterBottom>Composition</Typography>
                 <Typography color="text.secondary">

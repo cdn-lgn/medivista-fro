@@ -12,7 +12,7 @@ const Home = () => {
       display: 'flex',
       flexDirection: 'column',
       width: '100vw',
-      paddingTop: '64px' // Add this to account for fixed header
+      paddingTop: '64px'
     }}>
       <Header />
       <HeroSection/>

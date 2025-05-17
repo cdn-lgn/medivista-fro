@@ -10,25 +10,24 @@ const Footer = () => {
       sx={{
         bgcolor: '#1a1a1a',
         color: 'white',
-        py: 3, // Reduced from 6
-        mt: 4  // Reduced from 8
+        py: 3,
+        mt: 4
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={2}> {/* Reduced from 4 */}
-          {/* Company Info */}
+        <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
-            <Typography variant="subtitle1" sx={{ mb: 1 }}> {/* Changed from h6 and reduced margin */}
+            <Typography variant="subtitle1" sx={{ mb: 1 }}>
               Medivista
             </Typography>
-            <Typography variant="body2" sx={{ mb: 1, color: '#9e9e9e' }}> {/* Reduced margin */}
+            <Typography variant="body2" sx={{ mb: 1, color: '#9e9e9e' }}>
               Your trusted healthcare partner. Quality medicines delivered to your doorstep.
             </Typography>
           </Grid>
 
-          {/* Quick Links */}
+
           <Grid item xs={12} sm={4}>
-            <Typography variant="subtitle1" sx={{ mb: 1 }}> {/* Changed from h6 */}
+            <Typography variant="subtitle1" sx={{ mb: 1 }}>
               Quick Links
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}> {/* Reduced gap */}
@@ -48,9 +47,9 @@ const Footer = () => {
             </Box>
           </Grid>
 
-          {/* Contact Info */}
+
           <Grid item xs={12} sm={4}>
-            <Typography variant="subtitle1" sx={{ mb: 1 }}> {/* Changed from h6 */}
+            <Typography variant="subtitle1" sx={{ mb: 1 }}>
               Contact Us
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}> {/* Reduced gap */}
@@ -76,12 +75,12 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        {/* Copyright */}
+
         <Typography
           variant="body2"
           sx={{
-            mt: 2, // Reduced from 4
-            pt: 1, // Reduced from 2
+            mt: 2,
+            pt: 1,
             borderTop: '1px solid #333',
             textAlign: 'center',
             color: '#9e9e9e'

@@ -70,11 +70,11 @@ const SearchBar = () => {
       {showResults && results.length > 0 && (
         <Paper
           sx={{
-            position: 'fixed', // Change to fixed for mobile
-            top: { xs: '64px', sm: 'auto' }, // Adjust based on header height
+            position: 'fixed',
+            top: { xs: '64px', sm: 'auto' },
             left: { xs: 0, sm: 'auto' },
             right: { xs: 0, sm: 'auto' },
-            width: { xs: 'auto', sm: 'auto' ,md: '100%'}, // Full width on mobile
+            width: { xs: 'auto', sm: 'auto' ,md: '100%'},
             zIndex: 1000,
             mt: { xs: 0, sm: 0.5 },
             maxHeight: { xs: 'calc(100vh - 64px)', sm: '300px' },

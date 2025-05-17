@@ -16,21 +16,19 @@ const CategorySection = () => {
 
   return (
     <Box sx={{ mt: 5 }}>
-      {/* Category Header */}
       <Box sx={{ marginBottom: "20px", textAlign: "center" }}>
         <Typography variant="h5" sx={{ fontWeight: "bold" }}>
           Categories
         </Typography>
       </Box>
 
-      {/* Category Grid View */}
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: {
             xs: "repeat(2, 1fr)",
             sm: "repeat(3, 1fr)",
-            md: "repeat(4, 1fr)"
+            md: "repeat(4, 1fr)",
           },
           gap: "20px",
           padding: "20px",
@@ -53,7 +51,7 @@ const CategorySection = () => {
               "&:hover": {
                 backgroundColor: "#e0e0e0",
                 transform: "translateY(-3px)",
-                transition: "all 0.3s ease"
+                transition: "all 0.3s ease",
               },
             }}
           >
