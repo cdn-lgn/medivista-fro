@@ -25,8 +25,8 @@ const MedicineSection = () => {
     fetchMedicines();
   }, []);
 
-  const handleCardClick = () => {
-    navigate('/products');
+  const handleCardClick = (id) => {
+    navigate(`/product/${id}`);
   };
 
   return (
@@ -49,7 +49,7 @@ const MedicineSection = () => {
         {Array.isArray(medicines) && medicines.map((medicine) => (
           <Card
             key={medicine?.id || Math.random()}
-            onClick={handleCardClick}
+            onClick={() => handleCardClick(medicine?.id)}
             sx={{
               height: "100%",
               display: "flex",
