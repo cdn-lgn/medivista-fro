@@ -11,25 +11,31 @@ const SearchBar = () => {
 
   const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
+  const handleSearch = (searchQuery) => {
+    if (searchQuery?.trim()) {
+      axios.get(`${API_URL}/search?q=${searchQuery}`)
+        .then(response => {
+          setResults(Array.isArray(response?.data) ? response.data : []);
+        })
+        .catch(() => setResults([]));
+    } else {
+      setResults([]);
+    }
+  };
+
   useEffect(() => {
     const debounceSearch = setTimeout(() => {
-      if (query) {
-        axios.get(`${API_URL}/search?q=${query}`)
-          .then(response => setResults(response.data))
-          .catch(err => console.error(err));
-      } else {
-        setResults([]);
-      }
+      handleSearch(query);
     }, 2000);
 
     return () => clearTimeout(debounceSearch);
   }, [query]);
 
-  const handleItemClick = (id) => {
-    navigate(`/product/${id}`);
+  const handleItemClick = React.useCallback((id) => {
+    navigate('/products');
     setShowResults(false);
     setQuery('');
-  };
+  }, [navigate]);
 
   return (
     <Box sx={{
@@ -74,18 +80,18 @@ const SearchBar = () => {
           }}
         >
           <List>
-            {results.map((item) => (
+            {Array.isArray(results) && results.map((item) => (
               <ListItem
-                key={item.id}
-                onClick={() => handleItemClick(item.id)}
+                key={item?.id || Math.random()}
+                onClick={() => handleItemClick(item?.id)}
                 sx={{
                   cursor: 'pointer',
                   '&:hover': { backgroundColor: '#f5f5f5' }
                 }}
               >
                 <ListItemText
-                  primary={item.productName}
-                  secondary={item.company}
+                  primary={item?.productName || 'Unknown Product'}
+                  secondary={item?.company || 'Unknown Company'}
                 />
               </ListItem>
             ))}
