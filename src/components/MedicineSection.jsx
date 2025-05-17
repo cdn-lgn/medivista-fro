@@ -35,7 +35,7 @@ const MedicineSection = () => {
         {medicines?.map((medicine) => (
           <Card
             key={medicine.id}
-            onClick={() => navigate(`/product/${medicine.id}`)}
+            onClick={() => navigate('/products')}
             sx={{
               height: "100%",
               display: "flex",

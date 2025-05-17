@@ -1,7 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -35,6 +38,7 @@ const HeroSection = () => {
         <Box sx={{ display: "flex", gap: 2 }}>
           <Button
             variant="contained"
+            onClick={() => navigate('/products')}
             sx={{
               color: "white",
               backgroundColor: "#45a049",
