@@ -35,7 +35,7 @@ const SearchBar = () => {
   }, [query]);
 
   const handleItemClick = React.useCallback((id) => {
-    navigate('/products');
+    navigate(`/product/${id}`);
     setShowResults(false);
     setQuery('');
   }, [navigate]);

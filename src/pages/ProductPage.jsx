@@ -31,6 +31,7 @@ const ProductPage = () => {
           ],
           composition: "Active ingredient: Lorem ipsum 500mg"
         });
+        console.log("Product fetched successfully:", response?.data);
       } catch (error) {
         console.error("Error fetching product:", error);
       } finally {
